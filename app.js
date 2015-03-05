@@ -1,29 +1,33 @@
+// 添加依赖
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var routes = require('./routes');
 
-var routes = require('./routes/index');
-
+// 初始化express应用
 var app = express();
 
-// view engine setup
+// 视图引擎设置
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+app.set('view engine', 'html');
+app.engine('html', require('ejs-mate'));
+app.locals._layoutFile = 'layout.html';
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+// express应用基本设置
+app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', routes);
+// 路由初始化
+routes(app);
 
-// catch 404 and forward to error handler
+// 404错误捕获
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
     err.status = 404;
