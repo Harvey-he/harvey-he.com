@@ -1,4 +1,6 @@
 // 添加依赖
+require('./models');
+var config = require('./config');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -6,6 +8,9 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var routes = require('./routes');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+
 
 // 初始化express应用
 var app = express();
@@ -23,6 +28,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(session({
+    secret: config.session_secret,
+    key: 'sid',
+    store: new MongoStore({
+        url: config.db
+    }),
+    resave: true,
+    saveUninitialized: true
+}));
 
 // 路由初始化
 routes(app);
