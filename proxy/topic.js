@@ -11,3 +11,17 @@ exports.newAndSave = function (title, content, callback) {
     topic.content = content;
     topic.save(callback);
 };
+
+exports.getAllTopic = function (callback) {
+  Topic.find(null, null, null, function(err,docs){
+      if (err) {
+          return callback(err);
+      }
+      if (docs.length === 0) {
+          return callback(null, []);
+      }
+
+      return callback(null, docs);
+
+  });
+};

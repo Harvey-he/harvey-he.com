@@ -1,9 +1,9 @@
 <div class="index">
     <div class="content">
-        <% for(var i=0; i < fortimes; i++) {%>
+        <% for(var i=0; i < topics.length; i++) {%>
             <section>
-                <h1>标题</h1>
-                <article>文章内容</article>
+                <h1><%= topics[i].title%></h1>
+                <article><%= topics[i].content%></article>
             </section>
         <% } %>
     </div>
