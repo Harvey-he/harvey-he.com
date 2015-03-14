@@ -5,11 +5,25 @@ body {
     color: #3A4145;
     font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.divider.long {
+    width: 30%;
+}
+.divider.short {
+    width: 15%;
+}
+.divider {
+    margin: 10px auto;
+    border-top: 1px solid rgba(255,255,255,.14);
+}
+hr {
+    border: none;
+}
+
 .sideNav {
     position: fixed;
     top: 0px;
     left: 0px;
-    width: 320px;
+    width: 360px;
     height: 100%;
     z-index: 100;
     background-color: #008b8b;
@@ -17,29 +31,35 @@ body {
 }
 .main {
     position: absolute;
-    left: 320px;
+    left: 360px;
     right: 0px;
     top: 0px;
     bottom: 0px;
     padding: 4rem 15%;
 }
 .sideNav .avatar{
-    height: 100px;
-    width: 100px;
+    height: 112px;
+    width: 112px;
     border-radius: 50%;
-    /*border: 5px solid #00ced1;*/
     margin: 0 auto;
     margin-top: 60px;
 }
 .sideNav .avatar img {
+    height: 112px;
+    width: 112px;
     border-radius: 50%;
+    border: 2px solid #24bfcf;
 }
 .sideNav{
     text-align: center;
     color: #ffffff;
 }
-.sideNav h1 {
+.sideNav h2 {
     margin: 20px 0;
+}
+.sideNav h4 {
+    margin: 20px 0;
+    line-height: 1.8;
 }
 .sideNav nav {
     margin: 50px 0;
