@@ -52,3 +52,73 @@ body {
     font-size: 16px;
     font-weight: bold;
 }
+
+.sideNav .social-icons {
+    margin-top: 10px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: inline-block
+}
+
+.sideNav .icon {
+    font-size: 18px;
+    display: inline-block;
+    color:#fff;
+}
+
+[class*=" icon-"]:before,[class^=icon-]:before {
+    font-family: simple-social;
+    font-style: normal;
+    font-weight: 400;
+    speak: none;
+    display: inline-block;
+    text-decoration: none;
+    width: 1em;
+    margin-right: .2em;
+    text-align: center;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1em;
+    margin-left: .2em;
+    font-size: 110%
+}
+
+.icon-github-circled:before {
+    content: '\e822'
+}
+
+.icon-linkedin:before {
+    content: '\e80d'
+}
+
+.icon-gplus:before {
+    content: '\e80c'
+}
+
+.icon-facebook:before {
+    content: '\e803'
+}
+
+.icon-twitter:before {
+    content: '\e819'
+}
+
+.icon-rss:before {
+    content: '\e808'
+}
+
+.icon-mail:before {
+    content: '\e806'
+}
+
+.icon-tag:before {
+    content: '\e807'
+}
+
+*,:after,:before {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
