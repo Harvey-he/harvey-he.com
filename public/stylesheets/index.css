@@ -1,3 +1,28 @@
-.index .content h1,.index .content h2{
-    margin: 20px 0;
+.post-title {
+    margin: 0;
+    color: #123E2D;
+    letter-spacing: -2px;
+    text-indent: -3px;
+}
+.post-title a {
+    text-decoration: none;
+    font-size: 3rem;
+    color: #123E2D;
+}
+.post-title a:hover{
+    color: #008b8b;
+}
+.post-meta {
+    display: inline-block;
+    margin: 8px 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 1.4em;
+    color: #9EABB3;
+}
+.post-content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6em;
+    color: #3A4145;
 }
