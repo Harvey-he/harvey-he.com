@@ -1,1 +1,13 @@
-<h1>文章详情</h1>
+<article>
+    <header>
+        <h1 class="post-title">
+            <a href="#"><%= topic.title%></a>
+        </h1>
+        <section class="post-meta">
+            <span class="post-time"><%= topic.create_at%></span>
+        </section>
+    </header>
+
+    <section class="post-content"><%= topic.content%></section>
+    <footer class="post-indexfooter"></footer>
+</article>

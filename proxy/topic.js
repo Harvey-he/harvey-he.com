@@ -25,3 +25,16 @@ exports.getAllTopic = function (callback) {
 
   });
 };
+
+exports.getOneTopicById = function (topicId, callback) {
+    Topic.findOne({_id:topicId}, function(err, docs){
+        if (err) {
+            return callback(err);
+        }
+        if (docs.length === 0) {
+            return callback(null, []);
+        }
+
+        return callback(null, docs);
+    });
+}
