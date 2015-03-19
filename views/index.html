@@ -1,19 +1,22 @@
-<div class="index">
-    <div class="content">
-        <% for(var i=0; i < topics.length; i++) {%>
-        <article>
-            <header>
-                <h1 class="post-title">
-                    <a href="/article/<%= topics[i]._id%>"><%= topics[i].title%></a>
-                </h1>
-                <section class="post-meta">
-                    <span class="post-time"><%= topics[i].create_at%></span>
-                </section>
-            </header>
+<% include ./sideNav.html %>
+<div class="main">
+    <div class="index">
+        <div class="content">
+            <% for(var i=0; i < topics.length; i++) {%>
+            <article>
+                <header>
+                    <h1 class="post-title">
+                        <a href="/article/<%= topics[i]._id%>"><%= topics[i].title%></a>
+                    </h1>
+                    <section class="post-meta">
+                        <span class="post-time"><%= topics[i].create_at%></span>
+                    </section>
+                </header>
 
-            <section class="post-content"><%= topics[i].content%></section>
-            <footer class="post-indexfooter"></footer>
-        </article>
-        <% } %>
+                <section class="post-content"><%= topics[i].content%></section>
+                <footer class="post-indexfooter"></footer>
+            </article>
+            <% } %>
+        </div>
     </div>
 </div>
