@@ -13,7 +13,7 @@ exports.newAndSave = function (title, content, callback) {
 };
 
 exports.getAllTopic = function (callback) {
-  Topic.find(null, null, null, function(err,docs){
+  Topic.find({ $query: {}, $orderby: { create_at : -1 } }, function(err,docs){
       if (err) {
           return callback(err);
       }
