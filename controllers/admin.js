@@ -1,20 +1,19 @@
 /**
  * Created by harvey on 3/10/15.
  */
-var Topic = require('../proxy').Topic;
+var User = require('../proxy').User;
 
 exports.new = function (req, res) {
-    var title = '标题';
-    var content = '内容内容';
 
-    //Topic.newAndSave(title, content, function (err, topic) {
-    //    if (err) {
-    //        return next(err);
-    //    }
-    //
-    //    res.render('admin', {'notic': '成功发表文章','topicId': topic._id});
-    //
-    //});
-    res.render('admin');
+    User.getAllUsers(function(err, users){
+        if(err){
+            return next(err);
+        }
+        if(users.length === 0) {
+            res.render('admin/signup');
+        }
+    })
+
+    res.render('admin/admin');
 
 }

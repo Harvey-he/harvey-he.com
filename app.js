@@ -19,7 +19,6 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs-mate'));
-app.locals._layoutFile = 'layout.html';
 
 // express应用基本设置
 app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -50,7 +49,6 @@ app.use(function(req, res, next) {
 });
 
 // error handlers
-
 // development error handler
 // will print stacktrace
 if (app.get('env') === 'development') {

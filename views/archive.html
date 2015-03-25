@@ -1,20 +1,17 @@
-
-<% include ./sideNav.html %>
-<div class="main">
-    <div class="index">
-        <div class="content">
-            <% for(var i=0; i < topics.length; i++) {%>
-            <article>
-                <header>
-                    <h1 class="post-title-middle">
-                        <a href="/article/<%= topics[i]._id%>"><%= topics[i].title%></a>
-                    </h1>
-                </header>
-                <footer class="post-indexfooter">
-                    <span>tag1</span><span>tag2</span>
-                </footer>
-            </article>
-            <% } %>
-        </div>
+<% layout('layout') -%>
+<div class="index">
+    <div class="content">
+        <% for(var i=0; i < topics.length; i++) {%>
+        <article>
+            <header>
+                <h1 class="post-title-middle">
+                    <a href="/article/<%= topics[i]._id%>"><%= topics[i].title%></a>
+                </h1>
+            </header>
+            <footer class="post-indexfooter">
+                <span>tag1</span><span>tag2</span>
+            </footer>
+        </article>
+        <% } %>
     </div>
 </div>
