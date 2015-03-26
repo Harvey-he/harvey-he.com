@@ -14,5 +14,8 @@ module.exports = function(app) {
     app.get('/project', project.index);
     app.get('/about', about.index);
     app.get('/article/:articleId', article.index);
-    app.get('/admin', admin.new);
+    app.get('/admin', admin.index);
+    app.get('/admin/signup', admin.signup);
+    app.get('/admin/signin', admin.signin)
+
 }
