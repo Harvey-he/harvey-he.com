@@ -1,6 +1,6 @@
 <% layout('admin/layout') -%>
 <div class="center">
-    <form action="">
+    <form action="/signup" method="post">
         <fieldset>
             <legend>注册</legend>
             <div class="row">
@@ -10,7 +10,7 @@
                             <span class="prefix">用户名：</span>
                         </div>
                         <div class="small-9 columns">
-                            <input type="text" placeholder="请输入用户名">
+                            <input type="text" placeholder="请输入用户名" pattern="[a-zA-Z]+" name="uname">
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                             <span class="prefix">邮箱：</span>
                         </div>
                         <div class="small-9 columns">
-                            <input type="text" placeholder="请输入邮箱地址">
+                            <input type="email" placeholder="请输入邮箱地址" name="email">
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                             <span class="prefix">密码：</span>
                         </div>
                         <div class="small-9 columns">
-                            <input type="text" placeholder="请输入大于六位的密码">
+                            <input type="password" placeholder="请输入大于六位的密码" name="password">
                         </div>
                     </div>
                 </div>
@@ -46,14 +46,14 @@
                             <span class="prefix">再次密码：</span>
                         </div>
                         <div class="small-9 columns">
-                            <input type="text" placeholder="请再次输入密码">
+                            <input type="password" placeholder="请再次输入密码" name="repassword">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <button type="submit" class="medium button green">注册</button>
+                    <input type="submit" class="medium button green" value="注册">
                 </div>
             </div>
         </fieldset>

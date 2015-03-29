@@ -1,6 +1,6 @@
 <% layout('admin/layout') -%>
 <div class="center">
-    <form action="">
+    <form action="/signin" method="post">
         <fieldset>
             <legend>登录</legend>
             <div class="row">
@@ -10,7 +10,7 @@
                             <span class="prefix">邮箱：</span>
                         </div>
                         <div class="small-9 columns">
-                            <input type="text" placeholder="请输入邮箱">
+                            <input type="email" placeholder="请输入邮箱" name="email">
                         </div>
                     </div>
                 </div>
@@ -22,14 +22,14 @@
                             <span class="prefix">密码：</span>
                         </div>
                         <div class="small-9 columns">
-                            <input type="text" placeholder="请输入密码">
+                            <input type="password" placeholder="请输入密码" name="password">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="large-12 columns">
-                    <button type="submit" class="medium button green">登录</button>
+                    <input type="submit" class="medium button green" value="登录">
                 </div>
             </div>
         </fieldset>

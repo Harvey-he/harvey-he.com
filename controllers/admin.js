@@ -5,7 +5,6 @@ var User = require('../proxy').User;
 
 exports.index = function (req, res) {
 
-
     User.getAllUsers(function(err, users){
         if(err){
             return next(err);
@@ -17,12 +16,4 @@ exports.index = function (req, res) {
         }
     })
 
-}
-
-exports.signup = function ( reg, res ) {
-    res.render('admin/signup');
-}
-
-exports.signin = function ( reg, res ) {
-    res.render('admin/signin');
 }

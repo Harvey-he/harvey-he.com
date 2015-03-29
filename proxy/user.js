@@ -27,7 +27,7 @@ exports.getAllUsers = function(callback){
     });
 }
 
-exports.getOneUser = function(email, password){
+exports.getOneUser = function(email, password,callback){
     User.findOne({email: email, password: password}, function(err, user){
         if (err) {
             return callback(err);
