@@ -9,6 +9,7 @@ var article = require('./controllers/article');
 var admin = require('./controllers/admin');
 var signup = require('./controllers/signup');
 var signin = require('./controllers/signin');
+var edit = require('./controllers/edit');
 
 module.exports = function(app) {
     app.get('/', index.index);
@@ -21,4 +22,5 @@ module.exports = function(app) {
     app.get('/admin/signin', signin.index);
     app.post('/signup',signup.signup);
     app.post('/signin',signin.signin);
+    app.get('/admin/topic/edit', edit.index);
 }
