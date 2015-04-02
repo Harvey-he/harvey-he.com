@@ -10,6 +10,10 @@ var admin = require('./controllers/admin');
 var signup = require('./controllers/signup');
 var signin = require('./controllers/signin');
 var edit = require('./controllers/edit');
+var list = require('./controllers/list');
+var setting = require('./controllers/setting');
+var persProf = require('./controllers/persProf');
+
 
 module.exports = function(app) {
     app.get('/', index.index);
@@ -23,4 +27,7 @@ module.exports = function(app) {
     app.post('/signup',signup.signup);
     app.post('/signin',signin.signin);
     app.get('/admin/topic/edit', edit.index);
+    app.get('/admin/topic/list', list.index);
+    app.get('/admin/setting', setting.index);
+    app.get('/admin/persProf', persProf.index);
 }
