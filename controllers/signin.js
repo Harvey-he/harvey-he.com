@@ -10,7 +10,7 @@ exports.index = function ( req, res ) {
 exports.signin = function ( req, res ) {
     var prams = req.body;
     User.getOneUser(prams.email, prams.password, function(){
-        res.redirect('admin');
+        res.redirect('admin/topic/list');
     })
 
 }

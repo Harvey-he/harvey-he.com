@@ -12,7 +12,7 @@ exports.index = function (req, res) {
         if(users.length === 0) {
             res.redirect('/admin/signup');
         }else{
-            res.render('admin/admin');
+            res.redirect('admin/topic/list');
         }
     })
 
