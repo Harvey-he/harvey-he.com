@@ -13,6 +13,7 @@ var edit = require('./controllers/edit');
 var list = require('./controllers/list');
 var setting = require('./controllers/setting');
 var persProf = require('./controllers/persProf');
+var passport = require('passport');
 
 
 module.exports = function(app) {
@@ -25,9 +26,17 @@ module.exports = function(app) {
     app.get('/admin/signup', signup.index);
     app.get('/admin/signin', signin.index);
     app.post('/signup',signup.signup);
-    app.post('/signin',signin.signin);
+    //app.post('/signin',signin.signin);
     app.get('/admin/topic/edit', edit.index);
     app.get('/admin/topic/list', list.index);
     app.get('/admin/setting', setting.index);
     app.get('/admin/persProf', persProf.index);
+    app.post('/login',
+        passport.authenticate('local',
+            {
+                successRedirect: '/admin',
+                failureRedirect: '/admin/signin'
+            }
+        )
+    );
 }

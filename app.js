@@ -10,6 +10,26 @@ var bodyParser = require('body-parser');
 var routes = require('./routes');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var User = require('./proxy').User;
+
+passport.use(new LocalStrategy(
+    function(email, password, done) {
+        User.findOne({ email: email }, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+            return done(null, user);
+        });
+    }
+));
+
 //var multer = require('multer');
 
 
@@ -72,6 +92,8 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
+
+
 
 
 module.exports = app;
