@@ -13,10 +13,9 @@ var edit = require('./controllers/edit');
 var list = require('./controllers/list');
 var setting = require('./controllers/setting');
 var persProf = require('./controllers/persProf');
-var passport = require('passport');
 
 
-module.exports = function(app) {
+module.exports = function(app, passport) {
     app.get('/', index.index);
     app.get('/archive', archive.index);
     app.get('/project', project.index);
@@ -31,12 +30,17 @@ module.exports = function(app) {
     app.get('/admin/topic/list', list.index);
     app.get('/admin/setting', setting.index);
     app.get('/admin/persProf', persProf.index);
-    app.post('/login',
-        passport.authenticate('local',
-            {
-                successRedirect: '/admin',
-                failureRedirect: '/admin/signin'
+    app.post('/login', function(req, res, next) {
+        passport.authenticate('local', function(err, user, info) {
+            if (err) { return next(err) }
+            if (!user) {
+                req.session.messages =  [info.message];
+                return res.redirect('/admin/signin')
             }
-        )
-    );
+            req.logIn(user, function(err) {
+                if (err) { return next(err); }
+                return res.redirect('/');
+            });
+        })(req, res, next);
+    });
 }

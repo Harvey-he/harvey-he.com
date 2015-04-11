@@ -13,7 +13,20 @@ var MongoStore = require('connect-mongo')(session);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
-var User = require('./proxy').User;
+var models = require('./models');
+var User = models.User;
+
+
+//passport配置
+passport.serializeUser(function(user, done) {
+    done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+    User.findById(id, function (err, user) {
+        done(err, user);
+    });
+});
 
 passport.use(new LocalStrategy(
     function(email, password, done) {
@@ -29,8 +42,6 @@ passport.use(new LocalStrategy(
         });
     }
 ));
-
-//var multer = require('multer');
 
 
 // 初始化express应用
@@ -59,9 +70,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 // 路由初始化
-routes(app);
+routes(app, passport);
 
 // 404错误捕获
 app.use(function(req, res, next) {
