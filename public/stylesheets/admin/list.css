@@ -1,0 +1,97 @@
+.page-content{
+    position: absolute;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.topic-list-wrap{
+    width: 33%;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    border-right: #edece4 1px solid;
+    background: #fff;
+}
+.floatingheader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 400;
+    height: 40px;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    color: #aaa9a2;
+    background: linear-gradient(to bottom, white 0%, white 25%, rgba(255, 255, 255, 0.9) 100%);
+}
+.floatingheader small {
+    font-size: 0.85em;
+}
+.topic-filter{
+    position: relative;
+    z-index: 300;
+}
+.btn {
+    display: inline-block;
+    margin-bottom: 0;
+    padding: 9px 14px;
+    font-size: 1.1rem;
+    line-height: 1.428571429;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+    text-shadow: none;
+    letter-spacing: 1px;
+    white-space: nowrap;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.topic-list-wrap .btn-new {
+    position: absolute;
+    top: 9px;
+    right: 20px;
+    z-index: 700;
+    padding: 2px 4px 3px 5px;
+    color: #fff !important;
+    background-color: #9FBB58;
+    border-color: #94b148;
+    transition: background 0.2s ease,border-color 0.2s ease;
+}
+
+.hidden{
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+
+
+.topic-preview{
+    width: 67%;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    background: #fff;
+}
